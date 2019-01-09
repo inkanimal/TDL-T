@@ -60,3 +60,16 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'simple_form'
+gem 'faker'
+gem 'devise'
+gem 'bootstrap', '~> 4.1.2'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'bulma-rails', '~> 0.6.1'
+gem 'dotenv-rails'
+# gem 'omniauth'
+# gem 'omniauth-facebook'
+gem 'activeadmin'
