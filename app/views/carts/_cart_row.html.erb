@@ -2,6 +2,8 @@
 
   <div class="row">
     <div class="col-xs-8">
+      <div class="prodcut-image">
+       <%= link_to image_tag("products/" + product.image_file_name, size: "250x250"), product_path(product) %>
       <h4><%= product.name %></h4>
       <h4>Description: <%= product.description %></h4>
     </div>
