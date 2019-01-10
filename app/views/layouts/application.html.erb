@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TDLTester</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>TDL</title>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% if request.ssl? %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% else %>
+    <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% end %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1><%= link_to "THIS DOG'S LIFE", root_path %></h1>
+          </div>
 
-  <body>
+
+
+      <div class="col-xs-6 text-right">
+        <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+
+        <% if user_signed_in? %>
+          <%= link_to 'Account', edit_user_registration_path, class: "button" %>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"button" %>
+
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path, class:"button" %>
+        <%= link_to "Sign up", new_user_registration_path, class:"button "%>
+    <%end%>
+      </div>
+    </div>
+    <hr>
     <%= yield %>
-  </body>
+  </div>
+
+</body>
 </html>
