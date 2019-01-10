@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resource :categories, only: [:show]
   resources :products
   devise_for :admin_users, ActiveAdmin::Devise.config
