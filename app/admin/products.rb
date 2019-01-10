@@ -25,6 +25,16 @@ ActiveAdmin.register Product do
   f.actions
 end
 
+index :as => :grid do |product|
+  div do
+    resource_selection_cell product
+    a :href => admin_product_path(product) do
+      image_tag("products/" + product.image_file_name, size: "100x100")
+    end
+  end
+  a truncate(product.name), :href => admin_product_path(product)
+end
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
